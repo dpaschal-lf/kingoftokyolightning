@@ -20,8 +20,11 @@ class Monster{
                 backgroundImage: 'url('+ this.image +')'
             }
         })
+        var pointsContainer = $("<div>",{
+            class: 'pointsContainer'
+        })
         var lifePointsContainer = $("<aside>",{
-            class: 'lifePointsContainer'
+            class: 'lifePointsContainer label',
         });
         this.domElements.lifePoints = $("<span>",{
             text: this.points.life
@@ -29,14 +32,15 @@ class Monster{
         lifePointsContainer.append( this.domElements.lifePoints);
 
         var victoryPointsContainer = $("<aside>",{
-            class: 'victoryPointsContainer'
+            class: 'victoryPointsContainer label',
         });
         this.domElements.victoryPoints = $("<span>",{
             text: this.points.victory
         })
 
         victoryPointsContainer.append( this.domElements.victoryPoints );
-        this.domElements.container.append( lifePointsContainer, victoryPointsContainer );
+        pointsContainer.append(lifePointsContainer, victoryPointsContainer)
+        this.domElements.container.append( pointsContainer );
         return this.domElements.container;
     }
 }

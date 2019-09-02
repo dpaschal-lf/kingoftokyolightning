@@ -17,4 +17,33 @@ body{
     background-color: pink;
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+
+.monster .pointsContainer{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: red;
+}
+.monster .pointsContainer > *{
+    background-color: white;
+    padding: 2%;
+    position: relative;
+}
+.label::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-color: black;
+    color: white;
+    height: 20px;
+    padding-right: 3px;
+}
+.label.lifePointsContainer::before{
+    content: 'life';
+}
+.label.victoryPointsContainer::before{
+    content: 'victory';
 }
