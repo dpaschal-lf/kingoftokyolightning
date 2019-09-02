@@ -11,4 +11,10 @@ class KingOfTokyo{
         var domElement = newMonster.render();
         this.dom.append( domElement );
     }
+    changePointsOfMonster( type, delta, monsterIndex ){
+        if(monsterIndex===undefined){
+            monsterIndex = this.currentMonster;
+        }
+        this.monsters[ monsterIndex ].changePoints( type, delta );
+    }
 }
