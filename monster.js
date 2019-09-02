@@ -34,6 +34,12 @@ class Monster{
         this.points[type] = nextValue;
         this.update();
     }
+    markCurrentTurn(){
+        this.domElements.container.addClass('current');
+    }
+    unmarkCurrentTurn(){
+        this.domElements.container.removeClass('current');
+    }
     update(){
         this.domElements.lifePoints.text(this.points.life);
         this.domElements.victoryPoints.text(this.points.victory);

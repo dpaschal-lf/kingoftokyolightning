@@ -19,7 +19,9 @@ body{
     background-position: center;
     position: relative;
 }
-
+.current{
+    border: 5px solid yellow;
+}
 .monster .pointsContainer{
     position: absolute;
     right: 0;

@@ -17,10 +17,12 @@ class KingOfTokyo{
         $("#rollDice").click( this.rollDice );
     }
     gotoNextMonster(){
+        this.monsters[this.currentMonster].unmarkCurrentTurn();
         this.currentMonster++;
         if(this.currentMonster === this.monsters.length){
             this.currentMonster=0;
         }
+        this.monsters[this.currentMonster].markCurrentTurn();
     }
     rollDice(){
         var diceValues = this.dice.rollAllDice();
@@ -47,12 +49,14 @@ class KingOfTokyo{
             this.changePointsOfMonster('life', damageToOtherMonsters, otherMonsters);
             this.changePointsOfMonster('victory', pointsForCurrentMonster);
         }
+        this.gotoNextMonster();
     }
     addMonster( name, image ){
         var newMonster = new Monster( name, image, 10, 0 );
         this.monsters.push( newMonster );
         var domElement = newMonster.render();
         this.dom.container.append( domElement );
+        this.monsters[this.currentMonster].markCurrentTurn();
     }
     changePointsOfMonster( type, delta, monsterList ){
         let targetMonsters = monsterList;
